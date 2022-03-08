@@ -24,17 +24,24 @@ class mesh:
         self.Cellnumber = c
 
     def __add__(self, other):
-        return self.Cellnumber + other.Cellnumber
+        result = mesh(0)
+        result.Cellnumber = self.Cellnumber + other.Cellnumber
+        return result
 
     def __sub__(self, other):
-        res = self.Cellnumber - other.Cellnumber
-        return res if res >= 0 else "Разность количества ячеек меньше нуля"
+        result = mesh(0)
+        result.Cellnumber = self.Cellnumber - other.Cellnumber
+        return result if result.Cellnumber >= 0 else "Разность количества ячеек меньше нуля"
 
     def __mul__(self, other):
-        return self.Cellnumber * other.Cellnumber
+        result = mesh(0)
+        result.Cellnumber =self.Cellnumber * other.Cellnumber
+        return result
 
     def __truediv__(self, other):
-        return self.Cellnumber // other.Cellnumber
+        result = mesh(0)
+        result.Cellnumber = self.Cellnumber // other.Cellnumber
+        return result
 
     def make_order(self, row):
         res = ""
@@ -46,8 +53,8 @@ class mesh:
 m1 = mesh(17)
 m2 = mesh(6)
 
-print("m1+m2 = ", m1 + m2)
-print("m1-m2 = ", m1 - m2)
-print("m1*m2 = ", m1 * m2)
-print("m1//m2 = ", m1 / m2)
+print("m1+m2 = ", (m1 + m2).Cellnumber)
+print("m1-m2 = ", (m1 - m2).Cellnumber)
+print("m1*m2 = ", (m1 * m2).Cellnumber)
+print("m1//m2 = ", (m1 / m2).Cellnumber)
 print(m1.make_order(5))
